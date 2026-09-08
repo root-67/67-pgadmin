@@ -1,14 +1,32 @@
-services:
-  - type: web
-    name: 67-pgadmin
-    runtime: docker
-    plan: free
-    envVars:
-      - key: PGADMIN_LISTEN_ADDRESS
-        value: 0.0.0.0
-      - key: PGADMIN_DISABLE_POSTFIX
-        value: true
-      - key: PGADMIN_DEFAULT_EMAIL
-        sync: true
-      - key: PGADMIN_DEFAULT_PASSWORD
-        sync: true
+projects:
+  - name: Six-Seven
+    environments:
+    - name: Production
+      services:
+      - type: web
+        name: 67-pgadmin
+        runtime: docker
+        repo: https://github.com/root-67/67-pgadmin
+        plan: free
+        envVars:
+        - key: PGADMIN_LISTEN_ADDRESS
+          sync: false
+        - key: PGADMIN_DISABLE_POSTFIX
+          sync: false
+        - key: PGADMIN_DEFAULT_PASSWORD
+          sync: false
+        - key: PGADMIN_DEFAULT_EMAIL
+          sync: false
+        - key: GLOBALLY_DELIVERABLE
+          sync: false
+        - key: CHECK_EMAIL_DELIVERABILITY
+          sync: false
+        - key: ALLOW_SPECIAL_EMAIL_DOMAINS
+          sync: false
+        region: oregon
+        dockerContext: .
+        dockerfilePath: ./Dockerfile
+        registryCredential:
+          fromRegistryCreds:
+            name: Github
+        autoDeployTrigger: commit
