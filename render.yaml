@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: pgAdmin
+    name: 67-pgadmin
     runtime: docker
     plan: free
     envVars:
@@ -9,6 +9,6 @@ services:
       - key: PGADMIN_DISABLE_POSTFIX
         value: true
       - key: PGADMIN_DEFAULT_EMAIL
-        sync: false
+        sync: true
       - key: PGADMIN_DEFAULT_PASSWORD
-        sync: false
+        sync: true
