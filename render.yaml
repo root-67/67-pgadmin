@@ -9,6 +9,6 @@ services:
       - key: PGADMIN_DISABLE_POSTFIX
         value: true
       - key: PGADMIN_DEFAULT_EMAIL
-        sync: false
+        sync: root-67@lavache.com
       - key: PGADMIN_DEFAULT_PASSWORD
-        sync: false
+        sync: 06071992
